@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starter Bank - Demo Banking Application</title>
+
+    <!-- Correct CSS path -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Demo disclaimer -->
+    <p style="
+        text-align:center;
+        font-size:12px;
+        color:gray;
+        margin:10px 0;
+    ">
+        ⚠️ This is a demo banking application created for learning purposes only.
+        No real user data is collected or stored.
+    </p>
+
+    <div class="login-page">
+        <!-- LEFT SECTION -->
+        <div class="login-left">
+            <div class="brand-section">
+                <div class="bank-logo">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                        <rect width="60" height="60" rx="12" fill="white" opacity="0.1"/>
+                        <path d="M30 15L45 25V45H15V25L30 15Z" fill="white"/>
+                        <rect x="20" y="30" width="6" height="15" fill="#667eea"/>
+                        <rect x="27" y="30" width="6" height="15" fill="#667eea"/>
+                        <rect x="34" y="30" width="6" height="15" fill="#667eea"/>
+                    </svg>
+                </div>
+
+                <h1>Starter Bank</h1>
+                <p class="tagline">Banking Made Simple & Secure</p>
+            </div>
+
+            <div class="features">
+                <div class="feature-item">
+                    <span class="feature-icon">🔒</span>
+                    <div>
+                        <h3>Secure Banking</h3>
+                        <p>256-bit encryption for all demo transactions</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <div>
+                        <h3>Instant Transfers</h3>
+                        <p>Send money instantly (demo)</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">📊</span>
+                    <div>
+                        <h3>Smart Analytics</h3>
+                        <p>Track spending patterns (demo)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT SECTION -->
+        <div class="login-right">
+            <div class="login-container">
+                <div class="login-header">
+                    <h2>Welcome Back</h2>
+                    <p>Please login to your demo account</p>
+                </div>
+
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter your username"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        Login to Demo Account
+                    </button>
+
+                    <div id="loginError" class="error-message"></div>
+                </form>
+
+                <div class="login-footer">
+                    <div class="demo-credentials">
+                        <p class="demo-title">🔑 Demo Credentials</p>
+
+                        <div class="credential-item">
+                            <span class="username-badge">demo</span>
+                            <span class="password-badge">demo123</span>
+                        </div>
+
+                        <div class="credential-item">
+                            <span class="username-badge">john</span>
+                            <span class="password-badge">john123</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Correct JS paths -->
+    <script src="storage.js"></script>
+    <script src="auth.js"></script>
+
+</body>
+</html>

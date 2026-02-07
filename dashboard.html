@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starter Bank - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <svg width="40" height="40" viewBox="0 0 60 60" fill="none">
+                    <rect width="60" height="60" rx="12" fill="#667eea" opacity="0.1"/>
+                    <path d="M30 15L45 25V45H15V25L30 15Z" fill="#667eea"/>
+                    <rect x="20" y="30" width="6" height="15" fill="white"/>
+                    <rect x="27" y="30" width="6" height="15" fill="white"/>
+                    <rect x="34" y="30" width="6" height="15" fill="white"/>
+                </svg>
+                <span>Starter Bank</span>
+            </div>
+            <div class="nav-user">
+                <div class="notification-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                    <span class="notification-badge">3</span>
+                </div>
+                <span id="welcomeUser" class="user-name"></span>
+                <button id="logoutBtn" class="btn-logout">Logout</button>
+            </div>
+        </nav>
+        
+        <div class="sidebar">
+            <ul class="menu">
+                <li class="menu-item active" data-section="dashboard">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    <span>Dashboard</span>
+                </li>
+                <li class="menu-item" data-section="accounts">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                    </svg>
+                    <span>Accounts</span>
+                </li>
+                <li class="menu-item" data-section="transfer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <polyline points="19 12 12 19 5 12"></polyline>
+                    </svg>
+                    <span>Transfer Money</span>
+                </li>
+                <li class="menu-item" data-section="transactions">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    <span>Transactions</span>
+                </li>
+                <li class="menu-item" data-section="beneficiaries">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span>Beneficiaries</span>
+                </li>
+                <li class="menu-item" data-section="cards">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                    </svg>
+                    <span>Cards</span>
+                </li>
+                <li class="menu-item" data-section="loans">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <span>Loans</span>
+                </li>
+                <li class="menu-item" data-section="statements">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    <span>Statements</span>
+                </li>
+                <li class="menu-item" data-section="settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v6m0 6v6m8.66-13.66l-4.24 4.24m-4.24 4.24l-4.24 4.24M23 12h-6m-6 0H1m19.66 8.66l-4.24-4.24m-4.24-4.24l-4.24-4.24"></path>
+                    </svg>
+                    <span>Settings</span>
+                </li>
+            </ul>
+        </div>
+
+        <main class="main-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="section active">
+                <h2>Dashboard Overview</h2>
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon purple">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-details">
+                            <p class="stat-label">Total Balance</p>
+                            <h3 class="stat-value" id="totalBalance">$0.00</h3>
+                            <p class="stat-change positive">+2.5% from last month</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="stat-details">
+                            <p class="stat-label">Monthly Income</p>
+                            <h3 class="stat-value">$5,000.00</h3>
+                            <p class="stat-change positive">+12% increase</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                        </div>
+                        <div class="stat-details">
+                            <p class="stat-label">Monthly Expenses</p>
+                            <h3 class="stat-value">$2,345.00</h3>
+                            <p class="stat-change negative">-5% decrease</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="stat-details">
+                            <p class="stat-label">Savings Goal</p>
+                            <h3 class="stat-value">75%</h3>
+                            <p class="stat-change">$15,000 of $20,000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="switchToSection('transfer')">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <polyline points="19 12 12 19 5 12"></polyline>
+                            </svg>
+                            Send Money
+                        </button>
+                        <button class="action-btn" onclick="switchToSection('beneficiaries')">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="8.5" cy="7" r="4"></circle>
+                                <line x1="20" y1="8" x2="20" y2="14"></line>
+                                <line x1="23" y1="11" x2="17" y2="11"></line>
+                            </svg>
+                            Add Beneficiary
+                        </button>
+                        <button class="action-btn" onclick="switchToSection('statements')">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                            </svg>
+                            View Statement
+                        </button>
+                        <button class="action-btn" onclick="switchToSection('cards')">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                <line x1="1" y1="10" x2="23" y2="10"></line>
+                            </svg>
+                            Manage Cards
+                        </button>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h3>Recent Transactions</h3>
+                    <div id="recentTransactions" class="transactions-list"></div>
+                </div>
+            </section>
+
+            <!-- Accounts Section -->
+            <section id="accounts" class="section">
+                <h2>My Accounts</h2>
+                <div id="accountsList" class="accounts-grid"></div>
+            </section>
+
+            <!-- Transfer Section -->
+            <section id="transfer" class="section">
+                <h2>Transfer Money</h2>
+                <div class="card">
+                    <form id="transferForm">
+                        <div class="form-group">
+                            <label for="fromAccount">From Account</label>
+                            <select id="fromAccount" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="toBeneficiary">To Beneficiary</label>
+                            <select id="toBeneficiary" required>
+                                <option value="">Select beneficiary</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Amount</label>
+                            <input type="number" id="amount" step="0.01" min="0.01" placeholder="Enter amount" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="remarks">Remarks (Optional)</label>
+                            <input type="text" id="remarks" placeholder="Add a note">
+                        </div>
+                        <button type="submit" class="btn-primary">Transfer Now</button>
+                        <div id="transferMessage" class="message"></div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Transactions Section -->
+           <!-- Transactions Section -->
+<section id="transactions" class="section">
+    <h2>Transaction History</h2>
+    <div class="card">
+        <div class="filter-section">
+            <select id="accountFilter">
+                <option value="all">All Accounts</option>
+            </select>
+            <select id="transactionType">
+                <option value="all">All Types</option>
+                <option value="credit">Credits Only</option>
+                <option value="debit">Debits Only</option>
+            </select>
+            <select id="dateRange">
+                <option value="all">All Time</option>
+                <option value="today">Today</option>
+                <option value="week">Last 7 Days</option>
+                <option value="month">Last 30 Days</option>
+                <option value="custom">Custom Range</option>
+            </select>
+            <div id="customDateInputs" style="display: none; display: flex; gap: 12px;">
+                <input type="date" id="dateFrom" placeholder="From Date">
+                <input type="date" id="dateTo" placeholder="To Date">
+            </div>
+            <button id="filterBtn" class="btn-secondary">Apply Filter</button>
+            <button id="resetFilterBtn" class="btn-secondary">Reset</button>
+        </div>
+        <div id="transactionsList"></div>
+    </div>
+</section>
+
+            <!-- Beneficiaries Section -->
+            <section id="beneficiaries" class="section">
+                <h2>Manage Beneficiaries</h2>
+                <button id="addBeneficiaryBtn" class="btn-primary">+ Add New Beneficiary</button>
+                
+                <div id="addBeneficiaryForm" class="card" style="display: none; margin-top: 20px;">
+                    <h3>Add New Beneficiary</h3>
+                    <form id="beneficiaryForm">
+                        <div class="form-group">
+                            <label for="beneficiaryName">Beneficiary Name</label>
+                            <input type="text" id="beneficiaryName" placeholder="Enter full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="beneficiaryAccount">Account Number</label>
+                            <input type="text" id="beneficiaryAccount" placeholder="Enter account number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="beneficiaryBank">Bank Name</label>
+                            <input type="text" id="beneficiaryBank" placeholder="Enter bank name" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Save Beneficiary</button>
+                            <button type="button" id="cancelBeneficiary" class="btn-secondary">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="beneficiariesList" class="beneficiaries-grid"></div>
+            </section>
+
+            <!-- Cards Section -->
+            <section id="cards" class="section">
+                <h2>My Cards</h2>
+                <div class="cards-grid">
+                    <div class="credit-card purple-gradient">
+                        <div class="card-header">
+                            <span class="card-type">Debit Card</span>
+                            <span class="card-bank">Starter Bank</span>
+                        </div>
+                        <div class="card-chip"></div>
+                        <div class="card-number">**** **** **** 4562</div>
+                        <div class="card-footer">
+                            <div class="card-holder">
+                                <span class="label">Card Holder</span>
+                                <span class="value" id="cardHolder1">DEMO USER</span>
+                            </div>
+                            <div class="card-expiry">
+                                <span class="label">Expires</span>
+                                <span class="value">12/26</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="credit-card blue-gradient">
+                        <div class="card-header">
+                            <span class="card-type">Credit Card</span>
+                            <span class="card-bank">Starter Bank</span>
+                        </div>
+                        <div class="card-chip"></div>
+                        <div class="card-number">**** **** **** 7891</div>
+                        <div class="card-footer">
+                            <div class="card-holder">
+                                <span class="label">Card Holder</span>
+                                <span class="value" id="cardHolder2">DEMO USER</span>
+                            </div>
+                            <div class="card-expiry">
+                                <span class="label">Expires</span>
+                                <span class="value">08/27</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-primary" style="margin-top: 20px;">+ Request New Card</button>
+            </section>
+
+            <!-- Loans Section -->
+            <!-- Loans Section -->
+<section id="loans" class="section">
+    <h2>Loan Applications</h2>
+    
+    <!-- Loan Application Form (Hidden by default) -->
+    <div id="loanApplicationForm" class="card" style="display: none; margin-bottom: 30px;">
+        <div class="loan-form-header">
+            <h3 id="loanFormTitle">Apply for Personal Loan</h3>
+            <button class="close-loan-form" onclick="closeLoanForm()">×</button>
+        </div>
+        <form id="loanForm">
+            <input type="hidden" id="loanType" value="">
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="loanAmount">Loan Amount</label>
+                    <input type="number" id="loanAmount" placeholder="Enter amount" min="1000" required>
+                </div>
+                <div class="form-group">
+                    <label for="loanTenure">Tenure (Years)</label>
+                    <select id="loanTenure" required>
+                        <option value="">Select tenure</option>
+                        <option value="1">1 Year</option>
+                        <option value="2">2 Years</option>
+                        <option value="3">3 Years</option>
+                        <option value="5">5 Years</option>
+                        <option value="7">7 Years</option>
+                        <option value="10">10 Years</option>
+                        <option value="15">15 Years</option>
+                        <option value="20">20 Years</option>
+                        <option value="30">30 Years</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="employmentType">Employment Type</label>
+                    <select id="employmentType" required>
+                        <option value="">Select employment type</option>
+                        <option value="salaried">Salaried</option>
+                        <option value="self-employed">Self-Employed</option>
+                        <option value="business">Business Owner</option>
+                        <option value="professional">Professional</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="monthlyIncome">Monthly Income</label>
+                    <input type="number" id="monthlyIncome" placeholder="Enter monthly income" min="1000" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="your@email.com" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="+91 1234567890" required>
+                </div>
+                <div class="form-group">
+                    <label for="panNumber">PAN Number</label>
+                    <input type="text" id="panNumber" placeholder="ABCDE1234F" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" rows="3" placeholder="Enter your complete address" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="purpose">Loan Purpose</label>
+                <textarea id="purpose" rows="2" placeholder="Brief description of loan purpose" required></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">Submit Application</button>
+                <button type="button" class="btn-secondary" onclick="closeLoanForm()">Cancel</button>
+            </div>
+            <div id="loanMessage" class="message"></div>
+        </form>
+    </div>
+
+    <!-- Loan Options Cards -->
+    <div class="loan-options" id="loanOptionsCards">
+        <div class="loan-card">
+            <div class="loan-icon">💰</div>
+            <h3>Personal Loan</h3>
+            <p>Get funds for personal needs</p>
+            <ul>
+                <li>Up to $50,000</li>
+                <li>Interest rate from 8.5%</li>
+                <li>Tenure: 1-5 years</li>
+                <li>Quick approval in 24 hours</li>
+            </ul>
+            <button class="btn-primary" onclick="openLoanForm('Personal Loan', 50000, '1,2,3,5')">Apply Now</button>
+        </div>
+        <div class="loan-card">
+            <div class="loan-icon">🏠</div>
+            <h3>Home Loan</h3>
+            <p>Finance your dream home</p>
+            <ul>
+                <li>Up to $500,000</li>
+                <li>Interest rate from 7.5%</li>
+                <li>Tenure: 5-30 years</li>
+                <li>Flexible repayment options</li>
+            </ul>
+            <button class="btn-primary" onclick="openLoanForm('Home Loan', 500000, '5,7,10,15,20,30')">Apply Now</button>
+        </div>
+        <div class="loan-card">
+            <div class="loan-icon">🚗</div>
+            <h3>Auto Loan</h3>
+            <p>Buy your dream vehicle</p>
+            <ul>
+                <li>Up to $75,000</li>
+                <li>Interest rate from 9%</li>
+                <li>Tenure: 1-7 years</li>
+                <li>Up to 90% on-road price</li>
+            </ul>
+            <button class="btn-primary" onclick="openLoanForm('Auto Loan', 75000, '1,2,3,5,7')">Apply Now</button>
+        </div>
+        <div class="loan-card">
+            <div class="loan-icon">💼</div>
+            <h3>Business Loan</h3>
+            <p>Grow your business</p>
+            <ul>
+                <li>Up to $200,000</li>
+                <li>Interest rate from 10%</li>
+                <li>Tenure: 1-10 years</li>
+                <li>Minimal documentation</li>
+            </ul>
+            <button class="btn-primary" onclick="openLoanForm('Business Loan', 200000, '1,2,3,5,7,10')">Apply Now</button>
+        </div>
+        <div class="loan-card">
+            <div class="loan-icon">🎓</div>
+            <h3>Education Loan</h3>
+            <p>Invest in your future</p>
+            <ul>
+                <li>Up to $100,000</li>
+                <li>Interest rate from 8%</li>
+                <li>Tenure: 5-15 years</li>
+                <li>Moratorium period available</li>
+            </ul>
+            <button class="btn-primary" onclick="openLoanForm('Education Loan', 100000, '5,7,10,15')">Apply Now</button>
+        </div>
+        <div class="loan-card">
+            <div class="loan-icon">💳</div>
+            <h3>Loan Against Property</h3>
+            <p>Unlock property value</p>
+            <ul>
+                <li>Up to $300,000</li>
+                <li>Interest rate from 9.5%</li>
+                <li>Tenure: 5-20 years</li>
+                <li>No end-use restriction</li>
+            </ul>
+            <button class="btn-primary" onclick="openLoanForm('Loan Against Property', 300000, '5,7,10,15,20')">Apply Now</button>
+        </div>
+    </div>
+
+    <!-- My Loan Applications -->
+    <div class="my-loans" style="margin-top: 40px;">
+        <h3>My Loan Applications</h3>
+        <div id="myLoansList" class="card">
+            <p style="text-align: center; padding: 20px; color: #999;">No loan applications yet</p>
+        </div>
+    </div>
+</section>
+
+            <!-- Statements Section -->
+            <section id="statements" class="section">
+                <h2>Account Statements</h2>
+                <div class="card">
+                    <div class="statement-filter">
+                        <div class="form-group">
+                            <label for="statementAccount">Select Account</label>
+                            <select id="statementAccount">
+                                <option value="all">All Accounts</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="statementMonth">Select Month</label>
+                            <select id="statementMonth">
+                                <option value="02-2026">February 2026</option>
+                                <option value="01-2026">January 2026</option>
+                                <option value="12-2025">December 2025</option>
+                                <option value="11-2025">November 2025</option>
+                            </select>
+                        </div>
+                        <button class="btn-primary">Download PDF</button>
+                        <button class="btn-secondary">Email Statement</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="section">
+                <h2>Account Settings</h2>
+                <div class="settings-grid">
+                    <div class="card">
+                        <h3>Profile Settings</h3>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="profileName" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" placeholder="+1 (555) 123-4567">
+                        </div>
+                        <button class="btn-primary">Update Profile</button>
+                    </div>
+                    <div class="card">
+                        <h3>Security Settings</h3>
+                        <div class="form-group">
+                            <label>Current Password</label>
+                            <input type="password" placeholder="Enter current password">
+                        </div>
+                        <div class="form-group">
+                            <label>New Password</label>
+                            <input type="password" placeholder="Enter new password">
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" placeholder="Confirm new password">
+                        </div>
+                        <button class="btn-primary">Change Password</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
